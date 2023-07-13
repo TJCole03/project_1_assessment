@@ -1,25 +1,25 @@
-const plusButton = document.querySelector('#plus')
-const minusButton = document.querySelector('#minus')
-const topNum = document.querySelector('#topNum')
-const inputNum = document.querySelector('#inputNum')
+let value = 0 
 
-plusButton.addEventListener('click', function () {
-    increment(); 
-    console.log('clicked plus');
-})
+document.getElementById('increment').addEventListener('click', increment)
+document.getElementById('decrement').addEventListener('click', decrement)
 
-minusButton.addEventListener('click', function () {
-    decrement(); 
-    console.log('clicked minus');
-})
+function increment(event) {
+    value = value + parseInt(document.getElementById('number').value, 10)
+    document.getElementById('value').innerHTML = `${value}`
+    if (value < 0) {
+        document.getElementById('value').classList.add('red')
+    } else {
+        document.getElementById('value').classList.remove('red')
+    }
+} 
 
-
-
-function increment(topNum, inputNum) {
-    
-        return topNum + inputNum
-}
-
-function decrement(topNum, inputNum) {
-    return topNum - inputNum
-}
+function decrement(event) {
+    value = value - parseInt(document.getElementById('number').value, 10)
+    document.getElementById('value').innerHTML = `${value}`
+  
+    if (value < 0) {
+        document.getElementById('value').classList.add('red')
+    } else {
+        document.getElementById('value').classList.remove('red')
+    }
+}    
